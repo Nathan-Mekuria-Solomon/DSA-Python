@@ -4,24 +4,43 @@ Welcome to my DSA practice repository! This is where I build and explore fundame
 
 ---
 
-## 💡 What’s in This Repo?
+## 📚 Table of Contents
 
-- 🔧 **Custom implementations** of core data structures (like linked lists, trees, graphs, stacks, queues, etc.)
-- 🧪 **Practice problems** and applications using those data structures
-- 🗂️ Organized by topic for clarity and focus
+- [🔁 Graph](./Graph/)
+- [🔐 Hashing](./Hashing/)
+- [🏔️ Heap](./Heap/)
+- [🔗 LinkedList](./LinkedList/)
+- [📥 Queue](./Queue/)
+- [🌀 Recursion](./Recursion/)
+- [🔍 Searching](./Searching/)
+- [🧮 Sorting](./Sorting/)
+- [📚 Stacks](./Stacks/)
+- [🌳 Tree](./Tree/)
+- [⚡ Priority Queue](./priorityQueue/)
 
 ---
 
-## 📁 Folder Structure
+## 💡 What’s in This Repo?
 
-├── Graph/            # Implementations and problems related to graph theory (BFS, DFS, etc.)
-├── Hashing/          # Hash tables, maps, and hashing techniques
-├── Heap/             # Min-heap, max-heap, and heap-based algorithms
-├── LinkedList/       # Singly, doubly, and circular linked lists
-├── Queue/            # Queue implementations and applications
-├── Recursion/        # Recursive techniques and related problems
-├── Searching/        # Linear search, binary search, and variants
-├── Sorting/          # Sorting algorithms: quicksort, mergesort, etc.
-├── Stacks/           # Stack implementations and stack-based problems
-├── Tree/             # Binary trees, BSTs, traversals, and manipulations
-└── priorityQueue/    # Priority queue concepts and custom implementations
+- 🔧 Custom implementations of data structures
+- 🧪 Practice problems and applications
+- 🗂️ Well-organized by topic
+
+---
+
+## 🎯 Learning Goals
+
+- Master core DSA topics
+- Solve problems from scratch
+- Prepare for interviews and competitions
+
+---
+
+## 🛠 Tech Stack
+
+- Language: **Python**
+- Clean, well-commented code
+
+---
+
+**Happy Coding! 🚀**
