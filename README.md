@@ -14,4 +14,14 @@ Welcome to my DSA practice repository! This is where I build and explore fundame
 
 ## 📁 Folder Structure
 
-├── Graph/ ├── Hashing/ ├── Heap/ ├── LinkedList/ ├── Queue/ ├── Recursion/ ├── Searching/ ├── Sorting/ ├── Stacks/ ├── Tree/ └── priorityQueue
+├── Graph/            # Implementations and problems related to graph theory (BFS, DFS, etc.)
+├── Hashing/          # Hash tables, maps, and hashing techniques
+├── Heap/             # Min-heap, max-heap, and heap-based algorithms
+├── LinkedList/       # Singly, doubly, and circular linked lists
+├── Queue/            # Queue implementations and applications
+├── Recursion/        # Recursive techniques and related problems
+├── Searching/        # Linear search, binary search, and variants
+├── Sorting/          # Sorting algorithms: quicksort, mergesort, etc.
+├── Stacks/           # Stack implementations and stack-based problems
+├── Tree/             # Binary trees, BSTs, traversals, and manipulations
+└── priorityQueue/    # Priority queue concepts and custom implementations
