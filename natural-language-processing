@@ -1,0 +1,201 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "gpuType": "T4",
+      "authorship_tag": "ABX9TyMbGYxGlnK+EKtbk0XKC0IY"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    },
+    "accelerator": "GPU"
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": 15,
+      "metadata": {
+        "id": "LTQxJ7MNVswA"
+      },
+      "outputs": [],
+      "source": [
+        "import tensorflow as tf\n",
+        "import numpy as np"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# create dataset\n",
+        "shakespeare_url = \"https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt\"\n",
+        "file_path = tf.keras.utils.get_file(\"shakespeare.txt\", shakespeare_url)\n",
+        "\n",
+        "with open(file_path) as f:\n",
+        "  shakespeare_text = f.read()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xFxfgpnxWdkW",
+        "outputId": "4da27666-fb9f-433a-c3af-667b18ae0f02"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Downloading data from https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt\n",
+            "\u001b[1m1115394/1115394\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 0us/step\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# tokenization\n",
+        "tokenizer = tf.keras.preprocessing.text.Tokenizer(char_level= True) # default: word-level encoding\n",
+        "tokenizer.fit_on_texts([shakespeare_text])"
+      ],
+      "metadata": {
+        "id": "5Ih_6QNmWzWj"
+      },
+      "execution_count": 7,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "tokenizer.texts_to_sequences([\"First\"])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MuFaICRnYFBz",
+        "outputId": "7de05aab-5ff2-44e0-9927-4f4bbaca5463"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[[20, 6, 9, 8, 3]]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "tokenizer.sequences_to_texts([[20, 6, 9, 8, 3]])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QxMIG0LqZHUj",
+        "outputId": "823431f9-c2cb-4fb2-a6b2-2141b65ead7b"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['f i r s t']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "max_id = len(tokenizer.word_index)\n",
+        "max_id"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EgLL7MmRZRsr",
+        "outputId": "31568fdb-a7a9-40f1-be40-964677822f08"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "39"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "dataset_size = tokenizer.document_count\n",
+        "dataset_size"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oS_2Kyi7ZaQY",
+        "outputId": "a61203f1-16a5-4f9d-ef13-3e30e6401dd1"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "[encoded] = np.array(tokenizer.texts_to_sequences([shakespeare_text])) - 1"
+      ],
+      "metadata": {
+        "id": "znwAOVM-ZgM7"
+      },
+      "execution_count": 16,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "SL4QDMI5aCO0"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
