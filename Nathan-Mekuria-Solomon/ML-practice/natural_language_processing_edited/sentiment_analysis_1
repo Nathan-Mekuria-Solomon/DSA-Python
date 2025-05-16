@@ -1,0 +1,149 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "gpuType": "T4",
+      "authorship_tag": "ABX9TyMG4Ld9SXCRVRPi4r+JcH20",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    },
+    "accelerator": "GPU"
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Nathan-Mekuria-Solomon/DSA-Python/blob/main/Nathan-Mekuria-Solomon/ML-practice/natural_language_processing_edited/sentiment_analysis_1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Sentiment Analysis 1 <br>\n",
+        "Loading IMDb Preprocessed Dataset"
+      ],
+      "metadata": {
+        "id": "Qq3SbbnK_joq"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import tensorflow as tf\n",
+        "import numpy as np\n",
+        "from tensorflow import keras"
+      ],
+      "metadata": {
+        "id": "QpAcEwzD_nkw"
+      },
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "(X_train, y_train), (X_test, y_test) = keras.datasets.imdb.load_data()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aZNzLF4mB99Y",
+        "outputId": "0947ac48-4c6d-464a-ad91-d20c5797047b"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/imdb.npz\n",
+            "\u001b[1m17464789/17464789\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 0us/step\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "X_train[0][:10]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3jC0vjimCvqb",
+        "outputId": "90bda63d-ce2d-4220-aded-143b495c2a6e"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[1, 14, 22, 16, 43, 530, 973, 1622, 1385, 65]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "word_index = keras.datasets.imdb.get_word_index()\n",
+        "id_to_word = {id_ + 3 : word for word, id_ in word_index.items()}\n",
+        "for id_, token in enumerate((\"<pad>\", \"sos\", \"<unk\")):\n",
+        "  id_to_word[id_] = token\n",
+        "\n",
+        "\" \".join([id_to_word[id_] for id_ in X_train[0][:10]])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "id": "-YQxXTSqC9Tj",
+        "outputId": "4ed07908-eac1-496d-e305-e1340280cdc4"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'sos this film was just brilliant casting location scenery story'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "WlK0iYStDwSu"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
